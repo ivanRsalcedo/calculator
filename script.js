@@ -11,8 +11,5 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) {
-        return "Error: Division by zero";
-    }
-    return a / b;
+    return b === 0 ? "Error: Division by zero" : a / b;
 }
