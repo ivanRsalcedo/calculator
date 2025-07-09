@@ -58,7 +58,7 @@ button:active, i:active {
     
     flex: 0 1 calc(25% - 30px/4);
     aspect-ratio: 1 / 1;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .btn-num {
