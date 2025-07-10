@@ -6,6 +6,13 @@ const operators = ['+', '-', '×', '÷'];
 
 
 const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        handleInput(button.textContent);
+    });
+});
+
 const display = document.querySelector('#results-display');
 const history = document.querySelector('#history');
 const btnDecimal = document.querySelector('#decimal');
@@ -18,13 +25,6 @@ function clearOperands() {
     secondOperand = '';
     display.style.fontSize = '65px';
 }
-
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        handleInput(button.textContent);
-    });
-});
 
 function handleInput(input) {
     if (calculated) {
@@ -68,7 +68,7 @@ function handleOperandAssignment(input) {
         updateHistory(`${firstOperand} ${operator}`);
         enableButton(btnDecimal, true);
     } else if (input === '=' && firstOperand != null && operator != null && secondOperand != null) { // if input is '='
-        updateDisplay(parseFloat(operate()).toFixed(6));
+        updateDisplay(parseFloat(operate().toFixed(6)));
         calculated = true;
         enableButton(btnDecimal, true);
     }
