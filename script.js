@@ -13,6 +13,14 @@ buttons.forEach(button => {
     });
 });
 
+const btnClear = document.querySelector('#btn-clear');
+
+btnClear.addEventListener('click', () => {
+    clearAll();
+});
+
+const btnDel = document.querySelector('#btn-del');
+
 const display = document.querySelector('#results-display');
 const history = document.querySelector('#history');
 const btnDecimal = document.querySelector('#decimal');
@@ -26,6 +34,12 @@ function clearOperands() {
     display.style.fontSize = '65px';
 }
 
+function clearAll() {
+    clearOperands();
+    updateDisplay('');
+    updateHistory('');
+}
+
 function handleInput(input) {
     if (calculated) {
         if (operators.includes(input)) { // if user inputs an operator after a prior calculation
@@ -35,9 +49,7 @@ function handleInput(input) {
             updateDisplay(firstOperand);
             updateHistory(`${firstOperand} ${operator}`);
         } else {
-            clearOperands();
-            updateDisplay('');
-            updateHistory('');
+            clearAll();
             handleOperandAssignment(input);
         }
         calculated = false;
