@@ -22,7 +22,23 @@ btnClear.addEventListener('click', () => {
 const btnDel = document.querySelector('#btn-del');
 
 btnDel.addEventListener('click', () => {
+    if (calculated) return; // no backspacing finished calculations
 
+    if (operator === null) { // if there's no operator, we know the user has yet to input a first operand
+        firstOperand = firstOperand.slice(0, -1);
+        updateDisplay(firstOperand);
+        checkForDecimals(firstOperand);
+    } else if (secondOperand !== '') { //if there's an operator, we know the user is working on the secondOperand
+        secondOperand = secondOperand.slice(0, -1);
+        updateDisplay(`${firstOperand} ${operator} ${secondOperand}`);
+        updateHistory(`${firstOperand} ${operator} ${secondOperand}`);
+        checkForDecimals(secondOperand);
+    } else { // the user must be wanting to delete the operator by this point
+        operator = null;
+        updateDisplay(firstOperand);
+        updateHistory(firstOperand);
+        checkForDecimals(firstOperand);
+    }
 });
 
 const display = document.querySelector('#results-display');
