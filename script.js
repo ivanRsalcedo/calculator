@@ -100,7 +100,8 @@ function handleOperandAssignment(input) {
         updateHistory(`${firstOperand} ${operator}`);
         enableButton(btnDecimal, true);
     } else if (input === '=' && firstOperand != null && operator != null && secondOperand != '') { // if input is '='
-        updateDisplay(parseFloat(operate().toFixed(6)));
+        const result = operate();
+        updateDisplay(typeof result === 'number' ? parseFloat(result.toFixed(6)) : result);
         calculated = true;
         enableButton(btnDecimal, true);
     }
@@ -187,5 +188,5 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return b === 0 ? "Error" : a / b;
+    return b === 0 ? "ERROR: Divide by 0" : a / b;
 }
