@@ -5,7 +5,7 @@ let calculated;
 const operators = ['+', '-', '×', '÷'];
 
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.btn-num, .btn-func');
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -20,6 +20,10 @@ btnClear.addEventListener('click', () => {
 });
 
 const btnDel = document.querySelector('#btn-del');
+
+btnDel.addEventListener('click', () => {
+
+});
 
 const display = document.querySelector('#results-display');
 const history = document.querySelector('#history');
