@@ -2,15 +2,6 @@ let firstOperand;
 let operator;
 let secondOperand;
 let calculated;
-
-clearOperands();
-
-function clearOperands() {
-    firstOperand = '';
-    operator = null;
-    secondOperand = '';
-}
-
 const operators = ['+', '-', '×', '÷'];
 
 
@@ -18,6 +9,16 @@ const buttons = document.querySelectorAll('button');
 const display = document.querySelector('#results-display');
 const history = document.querySelector('#history');
 const btnDecimal = document.querySelector('#decimal');
+
+clearOperands();
+
+function clearOperands() {
+    firstOperand = '';
+    operator = null;
+    secondOperand = '';
+    display.style.fontSize = '65px';
+}
+
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -43,7 +44,6 @@ function handleInput(input) {
     } else {
         handleOperandAssignment(input);
     }
-    console.log(`Operation: ${firstOperand} ${operator} ${secondOperand}\nInput: ${input}`);
 }
 
 function handleOperandAssignment(input) {
@@ -68,7 +68,7 @@ function handleOperandAssignment(input) {
         updateHistory(`${firstOperand} ${operator}`);
         enableButton(btnDecimal, true);
     } else if (input === '=' && firstOperand != null && operator != null && secondOperand != null) { // if input is '='
-        updateDisplay(parseFloat(operate()).toFixed(4));
+        updateDisplay(parseFloat(operate()).toFixed(6));
         calculated = true;
         enableButton(btnDecimal, true);
     }
@@ -97,20 +97,32 @@ function enableButton(button, enabling) {
     if (enabling) {
         button.style.filter = 'saturate(1)';
         button.style.cursor = 'pointer';
-        console.log('on');
     } else {
         button.style.filter = 'saturate(0)';
-        button.style.cursor = 'not-allowed';
-        console.log('off');
+        button.style.cursor = 'not-allowed';    
     }
 }
 
 function updateDisplay(content) {
     display.value = content;
+    autoResizeText();
 }
 
 function updateHistory(content) {
     history.textContent = content;
+}
+
+function autoResizeText() {
+    const maxFontSize = 65;
+    const minFontSize = 15;
+    let fontSize = maxFontSize;
+
+    display.style.fontSize = fontSize + 'px';
+
+    while (display.scrollWidth > display.clientWidth && fontSize > minFontSize) {
+        fontSize--;
+        display.style.fontSize = fontSize + 'px';
+    }
 }
 
 function operate() {

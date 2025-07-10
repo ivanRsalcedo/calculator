@@ -40,7 +40,7 @@ body {
     border: none;
     font-size: 65px;
     outline: none;
-    margin: 0px 15px 5px 0px;
+    padding: 0 15px 0 15px;
     text-align: right;
     caret-color: #5A3E28;
 }
