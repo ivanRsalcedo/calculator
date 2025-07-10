@@ -20,6 +20,7 @@ body {
     height: 90vh;
     max-width: 400px;
     max-height: 650px;
+    border-radius: 10px;
 }
 
 #control-panel {
@@ -37,18 +38,23 @@ body {
     caret-color: #5A3E28;
 }
 
-button, i {
+button {
     border: none;
     border-radius: 10px;
+    background: none;
 }
 
-button:hover, i:hover {
+button:hover {
     filter: brightness(110%) saturate(150%);
 }
 
-button:active, i:active {
+button:active {
     scale: 90%;
     filter: brightness(130%) saturate(175%);
+}
+
+button i {
+    font-size: 2em;
 }
 
 .buttons-container {

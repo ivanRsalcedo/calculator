@@ -12,11 +12,15 @@
 
 <body>
     <div id="frame">
-        <input id="results-display" type="text" value="calcuator">
+        <input id="results-display" type="text" value="calculator">
         <div id="control-panel">
             <div id="clear-control">
-                <i class="fas fa-delete-left"></i>
-                <i class="fas fa-trash"></i>
+                <button id="clear-btn" aria-label="Clear All">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button id="backspace-btn" aria-label="Backspace">
+                    <i class="fas fa-delete-left"></i>
+                </button>
             </div>
 
             <div class="buttons-container">
