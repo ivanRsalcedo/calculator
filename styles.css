@@ -23,6 +23,13 @@ body {
     border-radius: 10px;
 }
 
+#history {
+    font-size: 18px;
+    color: gray;
+    text-align: right;
+    margin: 0px 15px 5px 0px;
+}
+
 #control-panel {
     padding: 16px;
     border-top: 5px solid white;
@@ -33,7 +40,7 @@ body {
     border: none;
     font-size: 65px;
     outline: none;
-    margin: 100px 15px 5px 0px;
+    margin: 0px 15px 5px 0px;
     text-align: right;
     caret-color: #5A3E28;
 }
@@ -75,7 +82,7 @@ button i {
                         ==> 1/4 (25%) of the total gap space gives us the proper amount to deduce the per item width
                             ==> Math is cool
     */
-    
+
     flex: 0 1 calc(25% - 30px/4);
     aspect-ratio: 1 / 1;
     font-size: 1.8rem;
