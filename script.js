@@ -16,7 +16,11 @@ buttons.forEach(button => {
 const btnClear = document.querySelector('#btn-clear');
 
 btnClear.addEventListener('click', () => {
-    clearAll();
+    clearOperands();
+    updateDisplay('');
+    updateHistory('');
+    calculated = false;
+    enableButton(btnDecimal, true);
 });
 
 const btnDel = document.querySelector('#btn-del');
