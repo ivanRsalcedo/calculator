@@ -99,7 +99,7 @@ function handleOperandAssignment(input) {
         updateDisplay(input);
         updateHistory(`${firstOperand} ${operator}`);
         enableButton(btnDecimal, true);
-    } else if (input === '=' && firstOperand != null && operator != null && secondOperand != null) { // if input is '='
+    } else if (input === '=' && firstOperand != null && operator != null && secondOperand != '') { // if input is '='
         updateDisplay(parseFloat(operate().toFixed(6)));
         calculated = true;
         enableButton(btnDecimal, true);
